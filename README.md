@@ -9,3 +9,5 @@ Currently:
 
 It also contain a main class to run some of the solution in the console
 Just run `./gradlew run` in a terminal to test it
+
+You can also run `./gradlew run` and `java -jar build/libs/kata-kotlin-1.0-SNAPSHOT.jar` to avoid gradle run outputs

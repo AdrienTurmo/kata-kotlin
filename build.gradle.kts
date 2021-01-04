@@ -18,7 +18,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "MainKt"
+    mainClassName = "kata.MainKt"
 }
 
 tasks.withType<KotlinCompile>() {
@@ -27,6 +27,19 @@ tasks.withType<KotlinCompile>() {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.withType(Jar::class) {
+    manifest {
+        attributes["Main-Class"] = "MainKt"
+    }
+
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
 }
 
 val run by tasks.getting(JavaExec::class) {
