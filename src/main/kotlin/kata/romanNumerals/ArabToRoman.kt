@@ -6,14 +6,14 @@ class ArabToRoman {
         var intermediateNumber = arabNumber
         var romanNumber = "";
         while (intermediateNumber > 0) {
-            val (letter, nextCal) = findBiggestMathingLetter(intermediateNumber)
+            val (letter, nextCal) = findBiggestMatchingLetter(intermediateNumber)
             intermediateNumber = nextCal
             romanNumber += letter
         }
         return romanNumber
     }
 
-    private fun findBiggestMathingLetter(arabNumber: Int): Pair<String, Int> =
+    private fun findBiggestMatchingLetter(arabNumber: Int): Pair<String, Int> =
         when {
             arabNumber >= 1000 -> Pair(RomanNumbers.M.name, arabNumber - 1000)
             arabNumber >= 900 -> Pair(RomanNumbers.C.name + RomanNumbers.M.name, arabNumber - 900)
