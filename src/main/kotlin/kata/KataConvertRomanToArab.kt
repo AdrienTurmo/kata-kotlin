@@ -6,10 +6,10 @@ class KataConvertRomanToArab : Kata {
     private val romanToArab = RomanToArab()
 
     override fun execute() {
-        println("Convertir en chiffre arabe")
-        print("Nombre à convertir : ")
+        println("*** Convert to arab number ***")
+        print("Roman numeral to convert: ")
         val stringInput = readLine()!!
 
-        println("Resultat : ${romanToArab.convert(stringInput)}")
+        println("Result: ${romanToArab.convert(stringInput)}")
     }
 }
