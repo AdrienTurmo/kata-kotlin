@@ -1,54 +1,64 @@
 package kata.numberToLCD
 
-import java.lang.Exception
-
 enum class LcdNumber(
-    private val lcd: String
-    ) {
-    ZERO("""
- _ 
-| |
-|_|"""),
-    ONE("""
-   
-  |
-  |"""),
-    TWO("""
- _ 
- _|
-|_ """),
-    THREE("""
- _ 
- _|
- _|"""),
-    FOUR("""
-   
-|_|
-  |"""),
-    FIVE("""
- _ 
-|_ 
- _|"""),
-    SIX("""
- _ 
-|_ 
-|_|"""),
-    SEVEN("""
- _ 
-  |
-  |"""),
-    EIGHT("""
- _ 
-|_|
-|_|"""),
-    NINE("""
- _ 
-|_|
- _|""");
+    private val firstLine: LcdNumberLine,
+    private val secondLine: LcdNumberLine,
+    private val thirdLine: LcdNumberLine
+) {
+    ZERO(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = false, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = true)
+    ),
+    ONE(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = false, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = false, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = false, hasEndingVerticalBar = true)
+    ),
+    TWO(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = false)
+    ),
+    THREE(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = true)
+    ),
+    FOUR(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = false, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = false, hasEndingVerticalBar = true)
+    ),
+    FIVE(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = true)
+    ),
+    SIX(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = true)
+    ),
+    SEVEN(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = false, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = false, hasEndingVerticalBar = true)
+    ),
+    EIGHT(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = true)
+    ),
+    NINE(
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = false),
+        LcdNumberLine(hasLeadingVerticalBar = true, hasHorizontalBar = true, hasEndingVerticalBar = true),
+        LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = true)
+    );
 
-    fun firstLine() = lcd.lines()[1]
-    fun secondLine() = lcd.lines()[2]
-    fun thirdLine() = lcd.lines()[3]
+    fun firstLine() = firstLine.line()
+    fun secondLine() = secondLine.line()
+    fun thirdLine() = thirdLine.line()
 
     companion object {
         fun fromInt(digit: Int): LcdNumber {
