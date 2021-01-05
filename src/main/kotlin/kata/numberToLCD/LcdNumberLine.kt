@@ -8,11 +8,19 @@ class LcdNumberLine(
     private val hasEndingVerticalBar: Boolean
 ) {
 
-    fun line(): String {
+    fun line(width: Int): String {
         val firstCharacter = if (hasLeadingVerticalBar) VERTICAL_BAR.symbol else SPACE.symbol
-        val secondCharacter = if (hasHorizontalBar) HORIZONTAL_BAR.symbol else SPACE.symbol
+        val secondCharacter = if (hasHorizontalBar) HORIZONTAL_BAR.symbol * width else SPACE.symbol
         val thirdCharacter = if (hasEndingVerticalBar) VERTICAL_BAR.symbol else SPACE.symbol
         return firstCharacter + secondCharacter + thirdCharacter
+    }
+
+    private operator fun String.times(number: Int): String {
+        var duplicatedString = ""
+        for (index in 1..number) {
+            duplicatedString += this
+        }
+        return duplicatedString
     }
 
     private enum class LcdCharacter(

@@ -56,9 +56,9 @@ enum class LcdNumber(
         LcdNumberLine(hasLeadingVerticalBar = false, hasHorizontalBar = true, hasEndingVerticalBar = true)
     );
 
-    fun firstLine() = firstLine.line()
-    fun secondLine() = secondLine.line()
-    fun thirdLine() = thirdLine.line()
+    fun firstLine(width: Int) = firstLine.line(width)
+    fun secondLine(width: Int) = secondLine.line(width)
+    fun thirdLine(width: Int) = thirdLine.line(width)
 
     companion object {
         fun fromInt(digit: Int): LcdNumber {
