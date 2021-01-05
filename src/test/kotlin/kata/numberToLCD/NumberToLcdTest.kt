@@ -108,10 +108,10 @@ internal class NumberToLcdTest {
     @Test
     internal fun `should convert 9 to LCD for width 2`() {
         numberToLCD = NumberToLcd(2)
-        assertThat(numberToLCD.toLCD(912)).isEqualTo("""
- __     __ 
-|__|  | __|
- __|  ||__ """)
+        assertThat(numberToLCD.toLCD(9142)).isEqualTo("""
+ __          __ 
+|__|   ||__| __|
+ __|   |   ||__ """)
     }
 
 }

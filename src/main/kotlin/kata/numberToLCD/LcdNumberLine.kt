@@ -10,9 +10,9 @@ class LcdNumberLine(
 
     fun line(width: Int): String {
         val firstCharacter = if (hasLeadingVerticalBar) VERTICAL_BAR.symbol else SPACE.symbol
-        val secondCharacter = if (hasHorizontalBar) HORIZONTAL_BAR.symbol * width else SPACE.symbol
+        val secondCharacter = if (hasHorizontalBar) HORIZONTAL_BAR.symbol else SPACE.symbol
         val thirdCharacter = if (hasEndingVerticalBar) VERTICAL_BAR.symbol else SPACE.symbol
-        return firstCharacter + secondCharacter + thirdCharacter
+        return firstCharacter + secondCharacter * width + thirdCharacter
     }
 
     private operator fun String.times(number: Int): String {
