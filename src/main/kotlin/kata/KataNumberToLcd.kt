@@ -3,16 +3,19 @@ package kata
 import kata.numberToLCD.NumberToLcd
 
 class KataNumberToLcd : Kata {
-    private val numberToLcd = NumberToLcd(1, 1)
-
     override fun execute() {
         println("*** Display in LCD format ***")
+        print("Width: ")
+        val width = readLine()!!
+        print("Height: ")
+        val height = readLine()!!
         print("Number to display (10 digits tops): ")
-        val stringInput = readLine()!!
+        val numberToDisplay = readLine()!!
 
         try {
-            val number = stringInput.toInt()
-            print("Result :")
+            val numberToLcd = NumberToLcd(width = width.toInt(), height = height.toInt())
+            val number = numberToDisplay.toInt()
+            println("Result :")
             println(numberToLcd.toLCD(number))
         } catch (e: NumberFormatException) {
             println("Incorrect number format")
