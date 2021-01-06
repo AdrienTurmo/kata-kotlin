@@ -58,7 +58,9 @@ enum class LcdNumber(
 
     fun firstLine(width: Int) = firstLine.line(width)
     fun secondLine(width: Int) = secondLine.line(width)
+    fun secondLineVerticalExtension(width: Int) = secondLine.verticalExtensionLine(width)
     fun thirdLine(width: Int) = thirdLine.line(width)
+    fun thirdLineVerticalExtension(width: Int) = thirdLine.verticalExtensionLine(width)
 
     companion object {
         fun fromInt(digit: Int): LcdNumber {

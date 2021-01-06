@@ -3,7 +3,7 @@ package kata
 import kata.numberToLCD.NumberToLcd
 
 class KataNumberToLcd : Kata {
-    private val numberToLcd = NumberToLcd(1)
+    private val numberToLcd = NumberToLcd(1, 1)
 
     override fun execute() {
         println("*** Display in LCD format ***")
